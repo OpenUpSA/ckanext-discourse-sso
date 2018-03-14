@@ -1,12 +1,12 @@
-import logging
-import ckan.plugins as p
-from ckan.plugins.toolkit import c, redirect_to, request, config, abort, _
 from base64 import b64decode, b64encode
-from urlparse import parse_qs
+from ckan.plugins.toolkit import c, redirect_to, request, config
+from urllib import urlencode
+from urlparse import parse_qs, urljoin
+import ckan.plugins as p
 import hashlib
 import hmac
+import logging
 import os
-from urllib import urlencode
 
 log = logging.getLogger(__name__)
 
@@ -55,7 +55,8 @@ class SSOController(p.toolkit.BaseController):
             'sig': sig,
         })
 
-        redirect_to(discourse_url + "?" + query_string)
+        return_endpoint = urljoin(discourse_url, '/session/sso_login')
+        redirect_to(return_endpoint + "?" + query_string)
 
 
 def signature_is_valid(request):
