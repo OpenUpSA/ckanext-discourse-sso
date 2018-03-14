@@ -1,3 +1,4 @@
+from flask import Blueprint
 import ckan.plugins as p
 
 
