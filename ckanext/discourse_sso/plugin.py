@@ -1,14 +1,18 @@
+import logging
 from flask import Blueprint
 import ckan.plugins as p
 import ckan.lib.helpers as h
+from urllib import urlencode
 
 from ckan.common import _, c, request, response
+
+log = logging.getLogger(__name__)
 
 
 def sso():
     if not c.user:
-        h.redirect_to(controller='user',
-                      action='login', came_from="https://lala.bob")
+        log.info(request.url)
+        return h.redirect_to('/user/login?' + urlencode({'came_from': request.url}))
 
     return h.redirect_to("https://discourse.vulekamali.gov.za")
 
