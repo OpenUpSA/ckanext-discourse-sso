@@ -55,7 +55,7 @@ class SSOController(p.toolkit.BaseController):
             'sig': sig,
         })
 
-        redirect_to("https://discourse.vulekamali.gov.za?" + query_string)
+        redirect_to(discourse_url + "?" + query_string)
 
 
 def signature_is_valid(request):
