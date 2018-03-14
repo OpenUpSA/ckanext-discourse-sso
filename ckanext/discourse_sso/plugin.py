@@ -49,10 +49,10 @@ class SSOController(p.toolkit.BaseController):
             raise Exception('Incorrect Discourse SSO Signature to CKAN')
 
         payload_b64 = make_payload(request, c.userobj)
-        sig = sign(payload_b64)
+        signature_hash = sign(payload_b64)
         query_string = urlencode({
             'sso': payload_b64,
-            'sig': sig,
+            'sig': signature_hash.hexdigest(),
         })
 
         return_endpoint = urljoin(discourse_url, '/session/sso_login')
@@ -72,7 +72,7 @@ def signature_is_valid(request):
     our_sig = unicode(hash.hexdigest())
     log.debug("Our signature %r", our_sig)
 
-    return hmac.compare_digest(their_sig, our_sig.hexdigest())
+    return hmac.compare_digest(their_sig, our_sig)
 
 
 def make_payload(payload_b64, userobj):
@@ -89,6 +89,7 @@ def make_payload(payload_b64, userobj):
         'username': userobj.name,
         'name': userobj.fullname,
         'bio': userobj.about,
+        'require_activation': 'true',
     }))
 
 
