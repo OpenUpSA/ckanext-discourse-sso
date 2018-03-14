@@ -6,9 +6,9 @@ from ckan.common import _, c, request, response
 
 
 def sso():
-    # if not c.user:
-    #     h.redirect_to(controller='user',
-    #                   action='login', came_from=request.url)
+    if not c.user:
+        h.redirect_to(controller='user',
+                      action='login', came_from="https://lala.bob")
 
     return h.redirect_to("https://discourse.vulekamali.gov.za")
 
