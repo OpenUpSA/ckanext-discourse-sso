@@ -5,6 +5,12 @@ ckanext-discourse-sso
 Adds support for `Discourse SSO<https://meta.discourse.org/t/official-single-sign-on-for-discourse-sso/13045>`_.
 This means that Aleph becomes the authentication authority for a Discourse instance.
 
+When users try to login on Discourse, they get redirected to CKAN. If they are
+logged in on CKAN or login when prompted, they get redirected back to Discourse.
+
+Discourse will verify the user's email address (which it gets from CKAN) so that
+your discourse instance doesn't become a way to spam your CKAN users.
+
 ------------
 Requirements
 ------------
@@ -30,11 +36,11 @@ To install ckanext-discourse-sso:
    ``/etc/ckan/default/production.ini``).
 
 4. Set the config variable `discourse.sso.secret` to be the same value as `sso_secret`
-   in your Discourse settings. You can do this via the CKAN_DISCOURSE_SSO_SECRET
+   in your Discourse settings. You can do this via the `CKAN_DISCOURSE_SSO_SECRET`
    environment variable.
 
 5. Set the config variable `discourse.url` to be your Discourse intance, e.g.
-   `https://discourse.exampe.com/`. You can do this via the CKAN_DISCOURSE_URL
+   `https://discourse.exampe.com/`. You can do this via the `CKAN_DISCOURSE_URL`
    environment variable.
 
 6. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
