@@ -32,21 +32,36 @@ To install ckanext-discourse-sso:
 
      pip install git+https://github.com/OpenUpSA/ckanext-discourse-sso.git
 
-3. Add ``discourse-sso`` to the ``ckan.plugins`` setting in your CKAN
+3. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
+
+     sudo service apache2 reload
+
+-------------
+Configuration
+-------------
+
+Discourse
+---------
+
+1. Make up some random secret string and enter it in the `sso_secret` settings field
+
+2. Enter your CKAN URL with the `/discourse/sso` suffix in the `sso_url` field,
+   e.g. `https://data.example.com/discourse/sso`
+
+CKAN
+----
+
+1. Add ``discourse-sso`` to the ``ckan.plugins`` setting in your CKAN
    config file (by default the config file is located at
    ``/etc/ckan/default/production.ini``).
 
-4. Set the config variable `discourse.sso.secret` to be the same value as `sso_secret`
+2. Set the config variable `discourse.sso.secret` to be the same value as `sso_secret`
    in your Discourse settings. You can do this via the `CKAN_DISCOURSE_SSO_SECRET`
    environment variable.
 
-5. Set the config variable `discourse.url` to be your Discourse intance, e.g.
+3. Set the config variable `discourse.url` to be your Discourse intance, e.g.
    `https://discourse.exampe.com/`. You can do this via the `CKAN_DISCOURSE_URL`
    environment variable.
-
-6. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
-
-     sudo service apache2 reload
 
 ------------------------
 Development Installation
