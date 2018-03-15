@@ -30,7 +30,7 @@ To install ckanext-discourse-sso:
 
 2. Install the ckanext-discourse-sso Python package into your virtual environment::
 
-     pip install git+https://github.com/OpenUpSA/ckanext-discourse-sso.git
+     pip install git+https://github.com/OpenUpSA/ckanext-discourse-sso.git@v0.0.1
 
 3. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
 
