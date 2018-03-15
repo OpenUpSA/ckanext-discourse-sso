@@ -2,7 +2,8 @@
 ckanext-discourse-sso
 =====================
 
-Adds support for `Discourse SSO<https://meta.discourse.org/t/official-single-sign-on-for-discourse-sso/13045>`_.
+Adds support for `Discourse SSO
+<https://meta.discourse.org/t/official-single-sign-on-for-discourse-sso/13045>`_.
 This means that Aleph becomes the authentication authority for a Discourse instance.
 
 When users try to login on Discourse, they get redirected to CKAN. If they are
