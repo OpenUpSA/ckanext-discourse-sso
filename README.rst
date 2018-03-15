@@ -43,10 +43,10 @@ Configuration
 Discourse
 ---------
 
-1. Make up some random secret string and enter it in the `sso_secret` settings field
+1. Make up some random secret string and enter it in the ``sso_secret`` settings field
 
-2. Enter your CKAN URL with the `/discourse/sso` suffix in the `sso_url` field,
-   e.g. `https://data.example.com/discourse/sso`
+2. Enter your CKAN URL with the ``/discourse/sso`` suffix in the ``sso_url`` field,
+   e.g. ``https://data.example.com/discourse/sso``
 
 CKAN
 ----
@@ -55,12 +55,12 @@ CKAN
    config file (by default the config file is located at
    ``/etc/ckan/default/production.ini``).
 
-2. Set the config variable `discourse.sso.secret` to be the same value as `sso_secret`
-   in your Discourse settings. You can do this via the `CKAN_DISCOURSE_SSO_SECRET`
+2. Set the config variable ``discourse.sso.secret`` to be the same value as ``sso_secret``
+   in your Discourse settings. You can do this via the ``CKAN_DISCOURSE_SSO_SECRET``
    environment variable.
 
-3. Set the config variable `discourse.url` to be your Discourse intance, e.g.
-   `https://discourse.exampe.com/`. You can do this via the `CKAN_DISCOURSE_URL`
+3. Set the config variable ``discourse.url`` to be your Discourse intance, e.g.
+   ``https://discourse.exampe.com/``. You can do this via the ``CKAN_DISCOURSE_URL``
    environment variable.
 
 ------------------------
